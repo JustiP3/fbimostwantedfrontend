@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 export default class Container extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { apiResponse: "init" };
+        this.state = { apiResponse: {total:0, items:[]} };
     }
     
     callAPI() {
         fetch("http://localhost:9000/")
-            .then(res => res.text())
+            .then(res => res.json())
             .then(res => {
-                if (!!res) {
-                    
-                    this.setState({ apiResponse: res.total })
+                if (!!res) {                    
+                    console.log(res.total)
+                    this.setState({ apiResponse: res })
                 } else {
                     console.log("no response")
                 }
@@ -26,10 +26,12 @@ export default class Container extends React.Component {
     }
 
     render() {
+        const displayText = this.state.apiResponse.total
         return(
+            
         <div>
             <h1>Test</h1>
-            <p>{this.state.apiResponse}</p>
+            <p>{displayText}</p>
         </div>
             )
     }
