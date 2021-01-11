@@ -8,11 +8,12 @@ export default class Container extends React.Component {
     }
     
     callAPI() {
-        fetch("http://localhost:9000/testAPI")
+        fetch("http://localhost:9000/")
             .then(res => res.text())
             .then(res => {
                 if (!!res) {
-                    this.setState({ apiResponse: res })
+                    
+                    this.setState({ apiResponse: res.total })
                 } else {
                     console.log("no response")
                 }
@@ -25,6 +26,11 @@ export default class Container extends React.Component {
     }
 
     render() {
-        return(<h1>Test</h1>)
+        return(
+        <div>
+            <h1>Test</h1>
+            <p>{this.state.apiResponse}</p>
+        </div>
+            )
     }
 }
