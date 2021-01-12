@@ -3,31 +3,50 @@ import React from 'react'
 
 const WantedEntry = function(props) {
 
+    let title;
+    if (!!props.item.title) {
+        title = props.item.title;
+    } else {
+        title = "untitled"
+    }
+
+    let description;
+    if (!!props.item.description) {
+        description = props.item.description
+    } else {
+        description = ""
+    }
+
+    let details;
+    if (!!props.item.details) {
+        details = props.item.details.replace(/<\/?[^>]+(>|$)/g, "")
+    } else {
+        details = ""
+    }
+
     const images = props.item.images.map((image) => <a href={image.original} key={image.caption}><img src={image.thumb} alt={image.caption} ></img></a> )
 
-    let details = [];
+    let misc = [];
     for (const [key, value] of Object.entries(props.item)) {
         
         if (!!props.item[key] && key !== "title" && key !== "uid" && key !== "files" && key !== "images" && key !== "details" && key !== "description" && key !== "path" && key !== "url" && key !== "@id") {
-            details.push(`${key}: ${value}`)
+            misc.push(`${key}: ${value}`)
         }
     }
 
-    const detailsList = details.map(x => <li key={x}>{x}</li>)
-    
+    const miscList = misc.map(x => <li key={x}>{x}</li>) 
   
-    
     return(
     <div className='entry'>
-        <h2>Title: {props.item.title}</h2>
-        <p>{props.item.description}</p>
+        <h2>Title: {title}</h2>
+        <p>{description}</p>
         <div>
-            {props.item.details.replace(/<\/?[^>]+(>|$)/g, "")}
+            {details}
         </div>
             {images}
         <div>
             <ul>
-                {detailsList}
+                {miscList}
             </ul>
         </div>
         

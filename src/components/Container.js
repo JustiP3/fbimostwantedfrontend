@@ -15,6 +15,7 @@ export default class Container extends React.Component {
             .then(res => {
                 if (!!res) {                    
                     console.log(res.total)
+                    console.log(typeof(res))
                     this.setState({ apiResponse: res })
                 } else {
                     console.log("no response")
