@@ -29,11 +29,21 @@ export default class Container extends React.Component {
 
     render() {
         const displayText = this.state.apiResponse.total
-        const itemsList = this.state.apiResponse.items.map((item) => <WantedEntry item={item} key={item.uid}/>)
-        return(            
-        <div className="container">
-            <h1>Total Responses: {displayText}</h1>
-            {itemsList}
-        </div>
-            )}
+
+        if (!!displayText && displayText !== "0") {
+            const itemsList = this.state.apiResponse.items.map((item) => <WantedEntry item={item} key={item.uid}/>)
+            return(            
+            <div className="container">
+                <h1>Total Responses: {displayText}</h1>
+                {itemsList}
+            </div>
+                )
+            } else {
+                return(            
+                    <div className="container">
+                        <h1>Total Responses: 0</h1>
+                    </div>
+                )
+            }
+    }
 }
