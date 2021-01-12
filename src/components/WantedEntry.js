@@ -1,6 +1,9 @@
 import React from 'react'
 
-export default function(props) {
+const WantedEntry = function(props) {
+
+    const images = props.item.images.map((image) => <img src={image.thumb} alt={image.caption}></img> )
+    
     
     return(<div className='entry'>
         <h2>Title: {props.item.title}</h2>
@@ -9,5 +12,8 @@ export default function(props) {
         <div>
             {props.item.details.replace(/<\/?[^>]+(>|$)/g, "")}
         </div>
+            {images}
         </div>)
 }
+
+export default WantedEntry
