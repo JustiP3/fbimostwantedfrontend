@@ -1,6 +1,10 @@
 
 body {
-    background-color: blueviolet;
+    background-color: rgb(139, 122, 155);
+}
+
+img {
+    padding: 10px;
 }
 
 .container {
