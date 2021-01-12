@@ -1,4 +1,5 @@
 import React from 'react';
+import WantedEntry from './WantedEntry.js'
 
 export default class Container extends React.Component {
 
@@ -27,11 +28,12 @@ export default class Container extends React.Component {
 
     render() {
         const displayText = this.state.apiResponse.total
+        const itemsList = this.state.apiResponse.items.map((item) => <WantedEntry item={item} key={item.uid}/>)
         return(
             
         <div>
-            <h1>Test</h1>
-            <p>{displayText}</p>
+            <h1>Total Responses: {displayText}</h1>
+            {itemsList}
         </div>
             )
     }
