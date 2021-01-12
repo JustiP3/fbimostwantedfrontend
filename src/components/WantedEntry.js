@@ -24,7 +24,7 @@ const WantedEntry = function(props) {
         details = ""
     }
 
-    const images = props.item.images.map((image) => <a href={image.original} key={image.caption}><img src={image.thumb} alt={image.caption} ></img></a> )
+    const images = props.item.images.map((image) => <a href={image.original} key={image.caption} target="_blank" rel="noopener noreferrer"><img src={image.thumb} alt={image.caption} ></img></a> )
 
     let misc = [];
     for (const [key, value] of Object.entries(props.item)) {
