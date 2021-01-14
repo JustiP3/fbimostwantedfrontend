@@ -33,14 +33,23 @@ export default class Container extends React.Component {
             const itemsList = this.state.apiResponse.items.map((item) => <WantedEntry item={item} key={item.uid}/>)
             return(            
             <div className="container">
-                <h1>Total Responses: {displayText}</h1>
-                {itemsList}
+                <div className="header">
+                    <h1>FBI Most Wanted List</h1>
+                </div>
+                <div className="entry">
+                    {itemsList}
+                </div>                
             </div>
                 )
             } else {
                 return(            
                     <div className="container">
-                        <h1>Total Responses: 0</h1>
+                       <div className="header">
+                            <h1>FBI Most Wanted List</h1>
+                        </div>
+                        <div className="entry">
+                            <p>No Response</p>
+                        </div>                        
                     </div>
                 )
             }

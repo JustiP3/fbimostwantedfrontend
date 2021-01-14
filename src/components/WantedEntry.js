@@ -48,7 +48,7 @@ const WantedEntry = function(props) {
     const miscList = misc.map(x => <p key={x}>{x}</p>) 
   
     return(
-    <div className='entry'>
+    <div>
         <h2>Title: {title}</h2>
         <p>{description}</p>
         <div>
