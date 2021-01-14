@@ -36,9 +36,8 @@ export default class Container extends React.Component {
                 <div className="header">
                     <h1>FBI Most Wanted List</h1>
                 </div>
-                <div className="entry">
-                    {itemsList}
-                </div>                
+                <div className="spacer"></div>                
+                {itemsList}                           
             </div>
                 )
             } else {
@@ -47,6 +46,7 @@ export default class Container extends React.Component {
                        <div className="header">
                             <h1>FBI Most Wanted List</h1>
                         </div>
+                        <div className="spacer"></div>
                         <div className="entry">
                             <p>No Response</p>
                         </div>                        
