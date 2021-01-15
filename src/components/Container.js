@@ -33,7 +33,7 @@ export default class Container extends React.Component {
             const itemsList = this.state.apiResponse.items.map((item) => <WantedEntry item={item} key={item.uid}/>)
             return(            
             <div className="container">
-                <div className="header">
+                <div className="header" className="sticky">
                     <h1>FBI Most Wanted List</h1>
                 </div>
                 <div className="spacer"></div>                
@@ -43,7 +43,7 @@ export default class Container extends React.Component {
             } else {
                 return(            
                     <div className="container">
-                       <div className="header">
+                       <div className="header" className="sticky">
                             <h1>FBI Most Wanted List</h1>
                         </div>
                         <div className="spacer"></div>
